@@ -1,6 +1,5 @@
 import io
 import torchvision.transforms as T
-import torch
 import torch.nn as nn
 from skimage.color import rgb2lab, lab2rgb, rgb2gray
 from PIL import Image

@@ -1,6 +1,8 @@
 
 from flask import Flask, request, jsonify
 import os
+import numpy as np
+import torch.utils.py
 
 app = Flask(__name__)
 
@@ -20,13 +22,16 @@ def predict():
         if not allowed_file(file.filename):
             return jsonify({'error': 'format not supported'})
 
-    try:
-        img_bytes = file.read()
-        tensor = transform_image(img_bytes)
-        prediction = get_prediction(tensor)
-        data = {'prediction': prediction.item()}
+    print('here')
 
-    except:
-        return jsonify({'error': 'error during prediction'})
+    # try:
+    img_bytes = file.read()
+    tensor = transform_image(img_bytes)
+    prediction = get_prediction(tensor)
+    data = {'prediction': prediction}
+    return jsonify(data)
+
+    # except:
+    # return jsonify({'error': 'error during prediction'})
 
     return jsonify({'result': 1})
