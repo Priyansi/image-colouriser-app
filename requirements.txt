@@ -17,6 +17,8 @@ numpydoc==0.9.2
 pexpect==4.8.0
 Pillow==7.0.0
 requests==2.22.0
+scikit-image==0.16.2
+scikit-learn==0.22.1
 torch==1.6.0+cpu
 torchvision==0.7.0+cpu
 urllib3==1.25.8
