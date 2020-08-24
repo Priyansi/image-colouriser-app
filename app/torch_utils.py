@@ -130,7 +130,7 @@ def get_prediction(image):
     return to_rgb(l_img.detach(), ab_img.detach())
 
 
-PATH = 'model.pth'
+PATH = 'app/model.pth'
 model = Encoder_Decoder()
 model.load_state_dict(torch.load(PATH, map_location='cpu'))
 model.eval()
