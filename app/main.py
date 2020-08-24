@@ -26,9 +26,6 @@ def predict():
         img_bytes = file.read()
         tensor = transform_image(img_bytes)
         prediction = get_prediction(tensor)
-        img = Image.fromarray(prediction.astype('uint8'))
-        file_object = io.BytesIO()
-        img.save(file_object, 'PNG')
         data = {'prediction': prediction.tolist()}
         return jsonify(data)
 

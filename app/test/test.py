@@ -1,6 +1,6 @@
 import requests
 
-resp = requests.post("http://localhost:5000/predict",
+resp = requests.post("https://image-colouriser.herokuapp.com/predict",
                      files={'file': open('test.jpg', 'rb')})
 
 print(resp.text)
