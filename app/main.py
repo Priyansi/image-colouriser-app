@@ -1,10 +1,17 @@
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import os
 import numpy as np
 from app.torch_utils import transform_image, get_prediction
+import os
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def render_page():
+    return render_template('index.html')
+
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
@@ -33,5 +40,5 @@ def predict():
         return jsonify({'error': 'error during prediction'})
 
 
-# if __name__ == "__main__":
-#     app.run(threaded=True)
+if __name__ == '__main__':
+    app.run(debug=False, port=os.getenv('PORT', 5000))
